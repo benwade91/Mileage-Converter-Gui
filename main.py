@@ -1,36 +1,41 @@
 import tkinter
 
 
-def button_click():
-    print('i got clicked')
-    header_label['text'] = new_input.get()
+def calculate():
+    m = int(mileage_input.get())
+    km = round(m * 1.6)
+    kilometers['text'] = km
 
 
 window = tkinter.Tk()
-window.minsize(500, 500)
+window.title("Miles to Km Conversion")
+window.config(padx=120, pady=100)
+window.minsize(500, 300)
 
 
-header_label = tkinter.Label(text='Title', font=('Arial', 24, 'bold'))
-header_label.grid(column=0, row=0)
+mileage_input = tkinter.Entry(width=10)
+mileage_input.grid(column=1, row=0)
 
 
-button = tkinter.Button(text='click me', command=button_click)
-button.grid(column=1, row=1)
+miles_label = tkinter.Label(text="Miles")
+miles_label.grid(column=2, row=0)
 
-new_button = tkinter.Button(text='click me too')
-new_button.grid(column=2, row=0)
 
-new_input = tkinter.Entry(width=10)
-new_input.grid(column=3, row=3)
+is_equal = tkinter.Label(text="is equal to")
+is_equal.grid(column=0, row=1)
 
+
+kilometers = tkinter.Label(text=0)
+kilometers.grid(column=1, row=1)
+
+
+km_label = tkinter.Label(text="Kilometers")
+km_label.grid(column=2, row=1)
+
+
+button = tkinter.Button(text='Calculate', command=calculate)
+button.grid(column=1, row=2)
 
 
 window.mainloop()
-# print(add(1, 2, 2))
-#
-# def add(*args):
-#     x = 0
-#     for i in args:
-#         x += i
-#     return x
 
